@@ -1,4 +1,37 @@
-.cars{
+div{
+    position: absolute;
+}
+/* .cars{
     height: 100px;
     width: 100px;
+} */
+.row-left{
+    height: 102px;
+    width: 202px;
+    border: solid black 1px;
+    border-right: none;
+}
+.row-right{
+    height: 102px;
+    width: 202px;
+    border: solid black 1px;
+    border-left: none;
+}
+.row-top{
+    height: 202px;
+    width: 102px;
+    border: solid black 1px;
+    border-bottom: none;
+}
+.row-middle{
+    height: 202px;
+    width: 102px;
+    border: solid black 1px;
+    border-bottom: none;
+}
+.row-bottom{
+    height: 202px;
+    width: 102px;
+    border: solid black 1px;
+    border-top: none;
 }

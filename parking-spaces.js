@@ -36,3 +36,11 @@ function carFactory(i){
 }
 carFactory();
 console.log(carsWaiting);
+
+let leftRow = document.querySelectorAll(".row-left");
+let rightRow = document.querySelectorAll(".row-right");
+let topRow = document.querySelectorAll(".row-top")
+let middleRow = document.querySelectorAll(".row-middle")
+let bottomRow = document.querySelectorAll(".row-bottom")
+let x = 0;
+let y = 0;
