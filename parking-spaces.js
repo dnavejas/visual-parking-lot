@@ -1,22 +1,38 @@
 'use strict'
 let carsWaiting = [];
 function randomTime(t){
-    var t = Math.floor(Math.random() * 4000) + 1000;
+    var t = Math.floor(Math.random() * 4000) + 8000;
     return t;
 }
-let carsArray = [
-    {name: 'aqua-car', image: 'car-aqua.png'},
-    {name: 'blue-car', image: 'car-blue.png'},
-    {name: 'dragon-car', image: 'car-dragon.png'},
-    {name: 'green-car', image: 'car-green.png'},
-    {name: 'grey-car', image: 'car-grey.png'},
-    {name: 'hot-pink-car', image: 'car-hot-pink.png'},
-    {name: 'lime-green-car', image: 'car-lime-green.png'},
-    {name: 'orange-car', image: 'car-orange.png'},
-    {name: 'pink-car', image: 'car-pink.png'},
-    {name: 'purple-car', image: 'car-purple.png'},
-    {name: 'red-stripes-car', image: 'car-red-stripes.png'},
-    {name: 'red-car', image: 'car-red.png'},
-    {name: 'white-car', image: 'car-white.png'},
-    {name: 'yellow-car', image: 'car-yellow.png'},
+let arrCarImages = [
+    "car-aqua.png", "car-blue.png", 'car-dragon.png', 'car-green.png', 'car-grey.png', 'car-hot-pink.png', 'car-lime-green.png', 'car-orange.png', 'car-pink.png', 'car-purple.png', 'car-red-stripes.png', 'car-red.png', 'car-white.png', 'car-yellow.png'
 ]
+function randomCarImage(arrCarImages){
+    let min = 0;
+    let max = (arrCarImages.length - 1);
+    let randCar = Math.floor(Math.random() * (max - min));
+    return arrCarImages[randCar];
+}
+function randomLP (lp){
+    var l = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+
+    while (l.length < 7) {
+        l += possible[Math.floor(Math.random() * possible.length)];
+    } 
+    return l
+}
+function Car(licensePlate, time, image){
+    console.dir(this);
+    this.licensePlate = randomLP();
+    this.time = randomTime();
+}
+function carFactory(i){
+    for (i = 0; i < 1; i++){
+        let car = new Car();
+        carsWaiting.push(car);
+    }
+    return carsWaiting;
+}
+carFactory();
+console.log(carsWaiting);
