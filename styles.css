@@ -27,7 +27,7 @@ div{
     height: 200px;
     width: 100px;
     border: solid black 1px;
-    border-bottom: none;
+    border-top: none;
 }
 .row-bottom{
     height: 200px;

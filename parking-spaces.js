@@ -23,7 +23,6 @@ function randomLP (lp){
     return l
 }
 function Car(licensePlate, time, image){
-    console.dir(this);
     this.licensePlate = randomLP();
     this.time = randomTime();
 }
@@ -38,10 +37,8 @@ carFactory();
 console.log(carsWaiting);
 
 let leftRow = document.querySelectorAll(".left-row");
-console.log(leftRow);
 let rightRow = document.querySelectorAll(".row-right");
-console.log(rightRow);
-let topRow = document.querySelectorAll(".top-right")
+let topRow = document.querySelectorAll(".row-top")
 let middleRow = document.querySelectorAll(".row-middle")
 let bottomRow = document.querySelectorAll(".row-bottom")
 function setLeftRow(leftRow){
@@ -54,11 +51,34 @@ function setLeftRow(leftRow){
 function setRightRow(rightRow){
     let rightRowTop = 0;
     for (let r=0; r<rightRow.length; r++){
-        rightRow[r].setAttribute("style", "top:" + rightRowTop + "px;" + "left:" + 1200 +"px;");
+        rightRow[r].setAttribute("style", "top:" + rightRowTop + "px;" + "left:" + 1100 +"px;");
         rightRowTop += 100;
 
     }
 }
+function setTopRow(topRow){
+    let topRowleft = 400;
+    for (let t=0; t<topRow.length; t++){
+        topRow[t].setAttribute("style", "left:" + topRowleft + "px; top: 0px;");
+        topRowleft += 100;
+    }
+}
+function setMiddleRow(middleRow){
+    let middleRowLeft = 400;
+    for (let m=0; m<middleRow.length; m++){
+        middleRow[m].setAttribute("style", "left:" + middleRowLeft + "px;"+ "top:400px;");
+        middleRowLeft += 100;
+    }
+}
+function setBottomwRow(bottomRow){
+    let bottomRowLeft = 400;
+    for (let b=0; b<bottomRow.length; b++){
+        bottomRow[b].setAttribute("style", "left:" + bottomRowLeft + "px;"+ "top:700px;");
+        bottomRowLeft += 100;
+    }
+}
 setLeftRow(leftRow);
 setRightRow(rightRow);
-console.log(rightRow);
+setTopRow(topRow);
+setMiddleRow(middleRow);
+setBottomwRow(bottomRow);
