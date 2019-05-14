@@ -37,10 +37,28 @@ function carFactory(i){
 carFactory();
 console.log(carsWaiting);
 
-let leftRow = document.querySelectorAll(".row-left");
+let leftRow = document.querySelectorAll(".left-row");
+console.log(leftRow);
 let rightRow = document.querySelectorAll(".row-right");
-let topRow = document.querySelectorAll(".row-top")
+console.log(rightRow);
+let topRow = document.querySelectorAll(".top-right")
 let middleRow = document.querySelectorAll(".row-middle")
 let bottomRow = document.querySelectorAll(".row-bottom")
-let x = 0;
-let y = 0;
+function setLeftRow(leftRow){
+    let leftRowTop = 0;
+    for (let l=0; l<leftRow.length; l++){
+        leftRow[l].setAttribute("style", "top:" + leftRowTop + "px");
+        leftRowTop += 100;
+    }
+}
+function setRightRow(rightRow){
+    let rightRowTop = 0;
+    for (let r=0; r<rightRow.length; r++){
+        rightRow[r].setAttribute("style", "top:" + rightRowTop + "px;" + "left:" + 1200 +"px;");
+        rightRowTop += 100;
+
+    }
+}
+setLeftRow(leftRow);
+setRightRow(rightRow);
+console.log(rightRow);
