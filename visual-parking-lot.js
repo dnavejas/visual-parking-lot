@@ -12,4 +12,10 @@ function createParkLot(){
     set4thRoadSec();
     set5thRoadSec();
     set6thRoadSec();
+    set1stIsecs();
+    set2ndIsecs();
+    createEntAndExit();
 } 
+function parkCars(){
+    
+}

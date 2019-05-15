@@ -52,16 +52,37 @@ div{
 }
 .road-top{
     height:100px;
-    width:552px;
+    width:558px;
     background-color: grey;
     border-bottom: yellow 1px solid;
 }
 .road-bottom{
     height:100px;
-    width:552px;
+    width:558px;
     background-color: grey;
     border-top: yellow 1px solid;
 }
 .p-spot{
     background-color: lightgrey;
+}
+.intersection-left{
+    background-color: khaki;
+    height: 203px;
+    width: 202px;
+}
+#car-entrance{
+    background-color: darkgray;
+    top: 1000px;
+    height: 100px;
+    width: 100px;
+}
+#car-exit{
+    background-color: blue;
+    top: 1050px;
+    height: 100px;
+    width: 100px;
+}
+#park-btn{
+    z-index: 2;
+    position: absolute;
 }
