@@ -1,10 +1,7 @@
 div{
     position: absolute;
+    z-index: 2;
 }
-/* .cars{
-    height: 100px;
-    width: 100px;
-} */
 .row-left{
     height: 110px;
     width: 200px;
@@ -72,17 +69,27 @@ div{
 }
 #car-entrance{
     background-color: darkgray;
-    top: 1000px;
-    height: 100px;
-    width: 100px;
+    top: 1015px;
+    left: 200px;
+    height: 200px;
+    width: 230px;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 24px;
 }
 #car-exit{
     background-color: blue;
-    top: 1050px;
-    height: 100px;
-    width: 100px;
+    top: 1015px;
+    left: 960px;
+    height: 200px;
+    width: 230px;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 24px;
 }
 #park-btn{
-    z-index: 2;
+    z-index: 3;
     position: absolute;
 }

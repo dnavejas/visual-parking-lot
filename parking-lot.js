@@ -203,9 +203,11 @@ function createEntAndExit(){
     console.log(script);
     let entrance=document.createElement("div");
     entrance.setAttribute("id", "car-entrance");
+    entrance.innerHTML = "ENTER";
     script.insertAdjacentElement('beforebegin', entrance);
     let exit=document.createElement("div");
     exit.setAttribute("id", "car-exit");
+    exit.innerHTML = "EXIT";
     script.insertAdjacentElement('beforebegin', exit);
     let parkBtn=document.createElement("input");
     parkBtn.setAttribute("type", "button");
