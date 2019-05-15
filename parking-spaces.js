@@ -1,84 +1,84 @@
 'use strict'
-let carsWaiting = [];
-function randomTime(t){
-    var t = Math.floor(Math.random() * 4000) + 8000;
-    return t;
-}
-let arrCarImages = [
-    "car-aqua.png", "car-blue.png", 'car-dragon.png', 'car-green.png', 'car-grey.png', 'car-hot-pink.png', 'car-lime-green.png', 'car-orange.png', 'car-pink.png', 'car-purple.png', 'car-red-stripes.png', 'car-red.png', 'car-white.png', 'car-yellow.png'
-]
-function randomCarImage(arrCarImages){
-    let min = 0;
-    let max = (arrCarImages.length - 1);
-    let randCar = Math.floor(Math.random() * (max - min));
-    return arrCarImages[randCar];
-}
-function randomLP (lp){
-    var l = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+let pLot=document.querySelector("#parking-lot");
+let pSpace=document.createElement("div");
+let setPLotBtn=document.createElement("input");
+setPLotBtn.setAttribute("type", "button");
+setPLotBtn.setAttribute("id", "plot-button");
+setPLotBtn.setAttribute("value", "Create Parking Lot",);
+setPLotBtn.setAttribute("onclick", "createParkLot()");
+document.body.appendChild(setPLotBtn);
 
-    while (l.length < 7) {
-        l += possible[Math.floor(Math.random() * possible.length)];
-    } 
-    return l
+function hide(){
+    let btn=document.querySelector("#plot-button");
+    btn.setAttribute("class", "hidden");
 }
-function Car(licensePlate, time, image){
-    this.licensePlate = randomLP();
-    this.time = randomTime();
-}
-function carFactory(i){
-    for (i = 0; i < 1; i++){
-        let car = new Car();
-        carsWaiting.push(car);
-    }
-    return carsWaiting;
-}
-carFactory();
-console.log(carsWaiting);
-
-let leftRow = document.querySelectorAll(".left-row");
-let rightRow = document.querySelectorAll(".row-right");
-let topRow = document.querySelectorAll(".row-top")
-let middleRow = document.querySelectorAll(".row-middle")
-let bottomRow = document.querySelectorAll(".row-bottom")
-function setLeftRow(leftRow){
-    let leftRowTop = 0;
-    for (let l=0; l<leftRow.length; l++){
-        leftRow[l].setAttribute("style", "top:" + leftRowTop + "px");
-        leftRowTop += 100;
+function setLeftRow(){
+    let rowTop=0;
+    let id=0;
+    for (let l=0; l<9; l++){
+        id++
+        let pLot=document.querySelector("#parking-lot");
+        let pSpace=document.createElement("div");
+        pSpace.setAttribute("style", "top:" + rowTop + "px");
+        pSpace.setAttribute("class", "p-spot row-left");
+        pSpace.setAttribute("id", "p-spot"+id);
+        rowTop+=100;
+        pLot.appendChild(pSpace);
     }
 }
-function setRightRow(rightRow){
-    let rightRowTop = 0;
-    for (let r=0; r<rightRow.length; r++){
-        rightRow[r].setAttribute("style", "top:" + rightRowTop + "px;" + "left:" + 1100 +"px;");
-        rightRowTop += 100;
-
+function setRightRow(){
+    let rowTop=0;
+    let id=9;
+    for (let r=0; r<9; r++){
+        id++;
+        let pLot=document.querySelector("#parking-lot");
+        let pSpace=document.createElement("div");
+        pSpace.setAttribute("style", "top:" + rowTop + "px;" + "left: 1100px;");
+        pSpace.setAttribute("class", "p-spot row-right");
+        pSpace.setAttribute("id", "p-spot"+id);
+        rowTop+=100;
+        pLot.appendChild(pSpace);
     }
 }
-function setTopRow(topRow){
-    let topRowleft = 400;
-    for (let t=0; t<topRow.length; t++){
-        topRow[t].setAttribute("style", "left:" + topRowleft + "px; top: 0px;");
-        topRowleft += 100;
+function setTopRow(){
+    let topRowleft=400;
+    let id=18;
+    for (let t=0; t<5; t++){
+        id++;
+        let pLot=document.querySelector("#parking-lot");
+        let pSpace=document.createElement("div");
+        pSpace.setAttribute("style", "left:" + topRowleft + "px; top: 0px;");
+        pSpace.setAttribute("class", "p-spot row-top");
+        pSpace.setAttribute("id", "p-spot"+id);
+        topRowleft+=100;
+        pLot.appendChild(pSpace);
     }
 }
-function setMiddleRow(middleRow){
-    let middleRowLeft = 400;
-    for (let m=0; m<middleRow.length; m++){
-        middleRow[m].setAttribute("style", "left:" + middleRowLeft + "px;"+ "top:400px;");
-        middleRowLeft += 100;
+function setMiddleRow(){
+    let middleRowLeft=400;
+    let id=23;
+    for (let m=0; m<5; m++){
+        id++
+        let pLot=document.querySelector("#parking-lot");
+        let pSpace=document.createElement("div");
+        pSpace.setAttribute("style", "left:" + middleRowLeft + "px;"+ "top:350px;");
+        pSpace.setAttribute("class", "p-spot row-middle");
+        pSpace.setAttribute("id", "p-spot"+id);
+        middleRowLeft+=100;
+        pLot.appendChild(pSpace);
     }
 }
-function setBottomwRow(bottomRow){
-    let bottomRowLeft = 400;
-    for (let b=0; b<bottomRow.length; b++){
-        bottomRow[b].setAttribute("style", "left:" + bottomRowLeft + "px;"+ "top:700px;");
-        bottomRowLeft += 100;
+function setBottomwRow(){
+    let bottomRowLeft=400;
+    let id=27;
+    for (let b=0; b<5; b++){
+        id++;
+        let pLot=document.querySelector("#parking-lot");
+        let pSpace=document.createElement("div");
+        pSpace.setAttribute("style", "left:" + bottomRowLeft + "px;"+ "top:700px;");
+        pSpace.setAttribute("class", "p-spot row-bottom");
+        pSpace.setAttribute("id", "p-spot"+id);
+        bottomRowLeft+=100;
+        pLot.appendChild(pSpace);
     }
 }
-setLeftRow(leftRow);
-setRightRow(rightRow);
-setTopRow(topRow);
-setMiddleRow(middleRow);
-setBottomwRow(bottomRow);

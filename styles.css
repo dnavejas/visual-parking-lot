@@ -5,7 +5,7 @@ div{
     height: 100px;
     width: 100px;
 } */
-.left-row{
+.row-left{
     height: 100px;
     width: 200px;
     border: solid black 1px;
@@ -34,4 +34,7 @@ div{
     width: 100px;
     border: solid black 1px;
     border-top: none;
+}
+.hidden{
+    display: none;
 }
