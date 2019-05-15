@@ -6,4 +6,10 @@ function createParkLot(){
     setTopRow();
     setMiddleRow();
     setBottomwRow();
+    set1stRoadSec();
+    set2ndRoadSec();
+    set3rdRoadSec();
+    set4thRoadSec();
+    set5thRoadSec();
+    set6thRoadSec();
 } 

@@ -6,35 +6,62 @@ div{
     width: 100px;
 } */
 .row-left{
-    height: 100px;
+    height: 110px;
     width: 200px;
     border: solid black 1px;
     border-right: none;
 }
 .row-right{
-    height: 100px;
+    height: 110px;
     width: 200px;
     border: solid black 1px;
     border-left: none;
 }
 .row-top{
     height: 200px;
-    width: 100px;
+    width: 110px;
     border: solid black 1px;
     border-bottom: none;
 }
 .row-middle{
     height: 200px;
-    width: 100px;
+    width: 110px;
     border: solid black 1px;
     border-top: none;
 }
 .row-bottom{
     height: 200px;
-    width: 100px;
+    width: 110px;
     border: solid black 1px;
     border-top: none;
 }
 .hidden{
     display: none;
+}
+.road-left{
+    height: 200px;
+    width: 98px;
+    background-color: grey;
+    border-right: yellow 1px solid;
+}
+.road-right{
+    height: 200px;
+    width: 100px;
+    background-color: grey;
+    border-left: yellow 1px solid;
+}
+.road-top{
+    height:100px;
+    width:552px;
+    background-color: grey;
+    border-bottom: yellow 1px solid;
+}
+.road-bottom{
+    height:100px;
+    width:552px;
+    background-color: grey;
+    border-top: yellow 1px solid;
+}
+.p-spot{
+    background-color: lightgrey;
 }
