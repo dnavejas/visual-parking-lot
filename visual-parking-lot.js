@@ -16,6 +16,7 @@ function createParkLot(){
     set2ndIsecs();
     createEntAndExit();
 } 
+
 function parkCars(){
-    
+    carFactory();
 }

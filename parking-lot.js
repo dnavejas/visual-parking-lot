@@ -1,5 +1,5 @@
 'use strict'
-let setPLotBtn=document.createElement("input");
+const setPLotBtn=document.createElement("input");
 setPLotBtn.setAttribute("type", "button");
 setPLotBtn.setAttribute("id", "plot-button");
 setPLotBtn.setAttribute("value", "Create Parking Lot",);
@@ -7,7 +7,7 @@ setPLotBtn.setAttribute("onclick", "createParkLot()");
 document.body.appendChild(setPLotBtn);
 
 function hide(){
-    let btn=document.querySelector("#plot-button");
+    const btn=document.querySelector("#plot-button");
     btn.setAttribute("class", "hidden");
 }
 function setLeftRow(){
@@ -199,9 +199,8 @@ function set2ndIsecs(){
     }
 }
 function createEntAndExit(){
-    let script=document.getElementById("p-lot-js");
-    console.log(script);
-    let entrance=document.createElement("div");
+    const script=document.getElementById("p-lot-js");
+    const entrance=document.createElement("div");
     entrance.setAttribute("id", "car-entrance");
     entrance.innerHTML = "ENTER";
     script.insertAdjacentElement('beforebegin', entrance);
@@ -215,4 +214,54 @@ function createEntAndExit(){
     parkBtn.setAttribute("id", "park-btn");
     parkBtn.setAttribute("onclick", "parkCars()");
     script.insertAdjacentElement('beforebegin', parkBtn);
+}
+let carsWaiting=[];
+function randomTime(t){
+    var t=Math.floor(Math.random()*4000)+8000;
+    return t;
+}
+let arrCarImages=[
+    "car-aqua.png", "car-blue.png", 'car-dragon.png', 'car-green.png', 'car-grey.png', 'car-hot-pink.png', 'car-lime-green.png', 'car-orange.png', 'car-pink.png', 'car-purple.png', 'car-red-stripes.png', 'car-red.png', 'car-white.png', 'car-yellow.png'
+]
+function randomCarImage(arrCarImages){
+    let min=0;
+    let max=(arrCarImages.length-1);
+    let randCar=Math.floor(Math.random()*(max-min));
+    return arrCarImages[randCar];
+}
+function randomLP(lp){
+    var l="";
+    var possible="ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+
+    while (l.length<7) {
+        l+=possible[Math.floor(Math.random()*possible.length)];
+    } 
+    return l;
+}
+function Car(){
+    console.log(this)
+    this.licensePlate = randomLP();
+    this.time=randomTime();
+    this.image=randomCarImage(arrCarImages);
+
+    this.paint = () => {
+        console.log(this)
+        let start = document.getElementById("car-entrance");
+
+        let newCar = document.createElement("img");
+        newCar.setAttribute("src", this.image);
+        newCar.setAttribute("id", this.licensePlate);
+        newCar.setAttribute("class", "r90");
+        newCar.setAttribute('style','position: absolute; top:50px; left:55px;')
+        start.appendChild(newCar);
+    }
+}
+
+function carFactory(i){
+    for (i=0;i<1;i++){
+        let car = new Car();
+        car.paint()
+        carsWaiting.push(car);
+    }
+    return carsWaiting;
 }
