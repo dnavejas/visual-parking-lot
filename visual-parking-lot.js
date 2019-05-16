@@ -19,4 +19,5 @@ function createParkLot(){
 
 function parkCars(){
     carFactory();
+    getParkSpots();
 }
