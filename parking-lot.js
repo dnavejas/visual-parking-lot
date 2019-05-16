@@ -258,7 +258,7 @@ function Car(){
 }
 
 function carFactory(i){
-    for (i=0;i<1;i++){
+    for (i=0;i<5;i++){
         let car = new Car();
         car.paint()
         carsWaiting.push(car);
