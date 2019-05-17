@@ -8,6 +8,8 @@ document.body.appendChild(setPLotBtn);
 
 let carsWaiting=[];
 let parkingSpots=[]; 
+let highway=[];
+const numberOfSpots = 33;
 
 function hide(){
     const btn=document.querySelector("#plot-button");
@@ -257,7 +259,7 @@ function Car(){
     }
 }
 function carFactory(i){
-    for (i=0;i<5;i++){
+    for (i=0;i<100;i++){
         let car = new Car();
         car.paint()
         carsWaiting.push(car);
@@ -269,8 +271,46 @@ function getParkSpots(i){
     for (i=0;i<33;i++){
         id++
         let parkingSpot = document.getElementById("p-spot"+id);
-        console.log(parkingSpot);
         parkingSpots.push(parkingSpot);
-        console.log(parkingSpots);
     }
 }
+function spotsAvailable() {
+    let space = numberOfSpots - parkingSpots.length;
+    return space;
+}
+function parkCar(){
+    for(let i = 0; i < carsWaiting.length; i++){
+        if (spotsAvailable() !== 0){
+            var car = carsWaiting.pop();
+            parkingSpots.push(car); 
+            setTimeout(leave, car.time, car.licenseplate);
+            console.log("Parking car!", car);
+        }   
+    }
+}
+function leave(){
+    let carPosition = parkingLot.map(function(car) {
+        return parkingSpots.indexOf(car.licenseplate);
+    })
+    let car = parkingLot.splice(carPosition, 1)[0];
+    highway.push(car);
+    console.log("Cars Leaving", car)
+}
+function noMoreCars(){
+    let x = carsWaiting.length;
+    let y = parkingSpots.length;
+    if(x == 0 && y == 0){
+        clearInterval(intervalId);
+    }
+}
+let intervalId = setInterval(function() {
+    parkCar();
+    noMoreCars();
+    console.clear();
+    console.log(`StreetQueue: ${carsWaiting.length}`);
+    console.log(`ParkingLot: ${parkingSpots.length}`);
+    console.log(`Highway: ${highway.length}`);
+    console.log(carsWaiting);
+    console.log(parkingSpots);
+    console.log(highway);
+}, 250)
