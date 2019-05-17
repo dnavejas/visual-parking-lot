@@ -7,13 +7,25 @@ setPLotBtn.setAttribute("onclick", "createParkLot()");
 document.body.appendChild(setPLotBtn);
 
 let carsWaiting=[];
-let parkingSpots=[]; 
-let highway=[];
-const numberOfSpots = 33;
+let parkingSpots=[];
+let carsArr=[];
+// let highway=[];
+// const numberOfSpots = 33;
 
 function hide(){
-    const btn=document.querySelector("#plot-button");
-    btn.setAttribute("class", "hidden");
+    let pLotBtn=document.querySelector("#plot-button");
+    pLotBtn.setAttribute("class", "hidden");
+}
+function hide2(){
+    let carBtn=document.querySelector("#car-btn");
+    carBtn.setAttribute("class", "hidden");
+    let parkBtn=document.createElement("input");
+    parkBtn.setAttribute("type", "button");
+    parkBtn.setAttribute("id", "park-btn");
+    parkBtn.setAttribute("value", "Park Some Cars",);
+    parkBtn.setAttribute("onclick", "parkCars()");
+    document.body.appendChild(parkBtn);
+
 }
 function setLeftRow(){
     let id=0;
@@ -73,7 +85,7 @@ function setMiddleRow(){
 }
 function setBottomwRow(){
     let bottomRowLeft=402;
-    let id=27;
+    let id=28;
     for (let b=0; b<5; b++){
         id++;
         let pLot=document.querySelector("#parking-lot");
@@ -213,12 +225,12 @@ function createEntAndExit(){
     exit.setAttribute("id", "car-exit");
     exit.innerHTML = "EXIT";
     script.insertAdjacentElement('beforebegin', exit);
-    let parkBtn=document.createElement("input");
-    parkBtn.setAttribute("type", "button");
-    parkBtn.setAttribute("value", "Park Some Cars");
-    parkBtn.setAttribute("id", "park-btn");
-    parkBtn.setAttribute("onclick", "parkCars()");
-    script.insertAdjacentElement('beforebegin', parkBtn);
+    let carBtn=document.createElement("input");
+    carBtn.setAttribute("type", "button");
+    carBtn.setAttribute("value", "Create Some Cars");
+    carBtn.setAttribute("id", "car-btn");
+    carBtn.setAttribute("onclick", "createCars()");
+    script.insertAdjacentElement('beforebegin', carBtn);
 }
 function randomTime(t){
     var t=Math.floor(Math.random()*4000)+8000;
@@ -259,58 +271,29 @@ function Car(){
     }
 }
 function carFactory(i){
-    for (i=0;i<100;i++){
+    for (i=0;i<1;i++){
         let car = new Car();
         car.paint()
-        carsWaiting.push(car);
+        // carsWaiting.push(car);
     }
-    return carsWaiting;    
+    // return carsWaiting;    
 }
 function getParkSpots(i){
     let id=0;
     for (i=0;i<33;i++){
         id++
-        let parkingSpot = document.getElementById("p-spot"+id);
+        let parkingSpot=document.getElementById("p-spot"+id);
+        let left=parkingSpot.offsetLeft;
+        let top=parkingSpot.offsetTop; 
         parkingSpots.push(parkingSpot);
     }
 }
-function spotsAvailable() {
-    let space = numberOfSpots - parkingSpots.length;
-    return space;
+function grabCars(){
+    let cars=document.getElementsByTagName("img");
+
+    for(let c=0; c<cars.length; c++)
+    console.log(cars.length);
+    console.dir(cars);
+    carsArr.push(cars);
+    return carsArr;
 }
-function parkCar(){
-    for(let i = 0; i < carsWaiting.length; i++){
-        if (spotsAvailable() !== 0){
-            var car = carsWaiting.pop();
-            parkingSpots.push(car); 
-            setTimeout(leave, car.time, car.licenseplate);
-            console.log("Parking car!", car);
-        }   
-    }
-}
-function leave(){
-    let carPosition = parkingLot.map(function(car) {
-        return parkingSpots.indexOf(car.licenseplate);
-    })
-    let car = parkingLot.splice(carPosition, 1)[0];
-    highway.push(car);
-    console.log("Cars Leaving", car)
-}
-function noMoreCars(){
-    let x = carsWaiting.length;
-    let y = parkingSpots.length;
-    if(x == 0 && y == 0){
-        clearInterval(intervalId);
-    }
-}
-let intervalId = setInterval(function() {
-    parkCar();
-    noMoreCars();
-    console.clear();
-    console.log(`StreetQueue: ${carsWaiting.length}`);
-    console.log(`ParkingLot: ${parkingSpots.length}`);
-    console.log(`Highway: ${highway.length}`);
-    console.log(carsWaiting);
-    console.log(parkingSpots);
-    console.log(highway);
-}, 250)

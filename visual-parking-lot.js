@@ -16,8 +16,11 @@ function createParkLot(){
     set2ndIsecs();
     createEntAndExit();
 } 
-
-function parkCars(){
+function createCars(){
     carFactory();
     getParkSpots();
+    hide2();
+}
+function parkCars(){
+    grabCars();
 }

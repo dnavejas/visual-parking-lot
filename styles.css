@@ -89,8 +89,12 @@ div{
     color: white;
     font-size: 24px;
 }
-#park-btn{
+#car-btn{
     z-index: 3;
+    position: absolute;
+}
+#park-btn{
+    z-index: 4;
     position: absolute;
 }
 .r90{
