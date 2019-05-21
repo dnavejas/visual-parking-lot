@@ -22,5 +22,7 @@ function createCars(){
     hide2();
 }
 function parkCars(){
-    grabCars();
+    assignCarToSpot();
+    // grabCars();
+    // getRandomParkSpot();
 }

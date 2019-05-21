@@ -7,7 +7,7 @@ setPLotBtn.setAttribute("onclick", "createParkLot()");
 document.body.appendChild(setPLotBtn);
 
 let carsWaiting=[];
-let parkingSpots=[];
+let parkingSpots = [];
 let carsArr=[];
 // let highway=[];
 // const numberOfSpots = 33;
@@ -271,29 +271,57 @@ function Car(){
     }
 }
 function carFactory(i){
-    for (i=0;i<1;i++){
+    for (i=0;i<33;i++){
         let car = new Car();
         car.paint()
         // carsWaiting.push(car);
     }
     // return carsWaiting;    
 }
-function getParkSpots(i){
-    let id=0;
-    for (i=0;i<33;i++){
-        id++
-        let parkingSpot=document.getElementById("p-spot"+id);
-        let left=parkingSpot.offsetLeft;
-        let top=parkingSpot.offsetTop; 
+function getParkSpots(){
+    for (let i = 1; i <= 33; i++){
+        let parkingSpotEle = document.getElementById("p-spot"+i);
+
+        let left = parkingSpotEle.offsetLeft;
+        let top = parkingSpotEle.offsetTop; 
+
+        const parkingSpot = {
+            parkingSpot: parkingSpotEle,
+            left,
+            top,
+            carInSpot: ''
+        }
+
         parkingSpots.push(parkingSpot);
     }
+    return parkingSpots
 }
-function grabCars(){
+
+function grabCars(parkingSpot){
     let cars=document.getElementsByTagName("img");
 
     for(let c=0; c<cars.length; c++)
-    console.log(cars.length);
-    console.dir(cars);
-    carsArr.push(cars);
+        carsArr.push(cars);
     return carsArr;
+}
+function getRandomParkSpot(){
+    //add logic to prevent grabbing same spot while its filled
+    let randomSpot = parkingSpots[Math.floor(Math.random()*parkingSpots.length)];
+    if (randomSpot.carInSpot < 1){
+        return randomSpot;
+    }
+}
+function assignCarToSpot(){
+    let randomSpot = getRandomParkSpot();
+    let cars = grabCars();
+    console.log(cars.length);
+    for(let i = 0; i < cars.length; i++){
+        console.dir(cars[0][0].id);
+    
+        randomSpot.carInSpot = cars[0][0].id;
+        console.log(randomSpot);
+    }
+    
+    // get a car and a random spot
+    // update the parkingspots collection at the given random parking spot to now have a assigned car
 }
