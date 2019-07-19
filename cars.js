@@ -46,13 +46,16 @@ function Car() {
     console.log("car left");
   };
   this.paint = () => {
-    let start = document.getElementById("car-entrance");
+    let start = document.body;
 
     let newCar = document.createElement("img");
     newCar.setAttribute("src", this.image);
     newCar.setAttribute("id", this.licensePlate);
     newCar.setAttribute("class", "r90");
-    newCar.setAttribute("style", "position: absolute; top:50px; left:55px;");
+    newCar.setAttribute(
+      "style",
+      "position: absolute; top:1100px; left:255px; z-index: 10;"
+    );
     start.appendChild(newCar);
   };
 }
