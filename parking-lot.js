@@ -28,6 +28,7 @@ function hide2() {
 function setLeftRow() {
   let id = 0;
   let rowTop = 0;
+  let rowLeft = 0;
   for (let l = 0; l < 9; l++) {
     id++;
     let pLot = document.querySelector("#parking-lot");
@@ -35,68 +36,76 @@ function setLeftRow() {
     pSpace.setAttribute("style", "top:" + rowTop + "px");
     pSpace.setAttribute("class", "p-spot row-left");
     pSpace.setAttribute("id", "p-spot" + id);
+    pSpace.setAttribute("entrance-top", rowTop + "px");
+    pSpace.setAttribute("entrance-left", rowLeft + 200 + "px");
     rowTop += 112;
     pLot.appendChild(pSpace);
   }
 }
 function setRightRow() {
   let rowTop = 0;
+  let rowLeft = 1163;
   let id = 9;
   for (let r = 0; r < 9; r++) {
     id++;
     let pLot = document.querySelector("#parking-lot");
     let pSpace = document.createElement("div");
-    pSpace.setAttribute("style", "top:" + rowTop + "px;" + "left: 1163px;");
+    pSpace.setAttribute("style", `top:${rowTop}px; left:${rowLeft}px;`);
     pSpace.setAttribute("class", "p-spot row-right");
     pSpace.setAttribute("id", "p-spot" + id);
+    pSpace.setAttribute("entrance-top", rowTop + "px");
+    pSpace.setAttribute("entrance-left", rowLeft + "px");
     rowTop += 112;
     pLot.appendChild(pSpace);
   }
 }
 function setTopRow() {
-  let topRowleft = 402;
+  let topRowLeft = 402;
+  let rowTop = 0;
   let id = 18;
   for (let t = 0; t < 5; t++) {
     id++;
     let pLot = document.querySelector("#parking-lot");
     let pSpace = document.createElement("div");
-    pSpace.setAttribute("style", "left:" + topRowleft + "px; top: 0px;");
+    pSpace.setAttribute("style", `left:${topRowLeft}px; top:${rowTop}px;`);
     pSpace.setAttribute("class", "p-spot row-top");
     pSpace.setAttribute("id", "p-spot" + id);
-    topRowleft += 112;
+    pSpace.setAttribute("entrance-top", rowTop + 200 + "px");
+    pSpace.setAttribute("entrance-left", topRowLeft + "px");
+    topRowLeft += 112;
     pLot.appendChild(pSpace);
   }
 }
 function setMiddleRow() {
   let middleRowLeft = 402;
+  let rowTop = 404;
   let id = 23;
   for (let m = 0; m < 5; m++) {
     id++;
     let pLot = document.querySelector("#parking-lot");
     let pSpace = document.createElement("div");
-    pSpace.setAttribute(
-      "style",
-      "left:" + middleRowLeft + "px;" + "top:404px;"
-    );
+    pSpace.setAttribute("style", `left:${middleRowLeft}px; top:${rowTop}px;`);
     pSpace.setAttribute("class", "p-spot row-middle");
     pSpace.setAttribute("id", "p-spot" + id);
+    pSpace.setAttribute("entrance-top", rowTop + "px");
+    pSpace.setAttribute("entrance-left", middleRowLeft + "px");
     middleRowLeft += 112;
     pLot.appendChild(pSpace);
   }
 }
 function setBottomwRow() {
   let bottomRowLeft = 402;
+  let rowTop = 808;
   let id = 28;
   for (let b = 0; b < 5; b++) {
     id++;
     let pLot = document.querySelector("#parking-lot");
     let pSpace = document.createElement("div");
-    pSpace.setAttribute(
-      "style",
-      "left:" + bottomRowLeft + "px;" + "top:808px;"
-    );
+    pSpace.setAttribute("style", `left:${bottomRowLeft}px; top:${rowTop}px;`);
     pSpace.setAttribute("class", "p-spot row-bottom");
     pSpace.setAttribute("id", "p-spot" + id);
+    pSpace.setAttribute("entrance-top", rowTop + "px");
+    pSpace.setAttribute("entrance-left", bottomRowLeft + "px");
     bottomRowLeft += 112;
     pLot.appendChild(pSpace);
   }
