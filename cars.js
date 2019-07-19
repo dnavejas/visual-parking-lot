@@ -42,6 +42,7 @@ function Car() {
   this.time = randomTime();
   this.image = randomCarImage(arrCarImages);
   this.time = randomTime();
+  this.direction = "NORTH";
   this.leave = function() {
     console.log("car left");
   };
