@@ -36,8 +36,8 @@ function setLeftRow() {
     pSpace.setAttribute("style", "top:" + rowTop + "px");
     pSpace.setAttribute("class", "p-spot row-left");
     pSpace.setAttribute("id", "p-spot" + id);
-    pSpace.setAttribute("entrance-top", rowTop + "px");
-    pSpace.setAttribute("entrance-left", rowLeft + 200 + "px");
+    pSpace.setAttribute("entrance-top", rowTop);
+    pSpace.setAttribute("entrance-left", rowLeft + 200);
     rowTop += 112;
     pLot.appendChild(pSpace);
   }
@@ -53,8 +53,8 @@ function setRightRow() {
     pSpace.setAttribute("style", `top:${rowTop}px; left:${rowLeft}px;`);
     pSpace.setAttribute("class", "p-spot row-right");
     pSpace.setAttribute("id", "p-spot" + id);
-    pSpace.setAttribute("entrance-top", rowTop + "px");
-    pSpace.setAttribute("entrance-left", rowLeft + "px");
+    pSpace.setAttribute("entrance-top", rowTop);
+    pSpace.setAttribute("entrance-left", rowLeft);
     rowTop += 112;
     pLot.appendChild(pSpace);
   }
@@ -70,8 +70,8 @@ function setTopRow() {
     pSpace.setAttribute("style", `left:${topRowLeft}px; top:${rowTop}px;`);
     pSpace.setAttribute("class", "p-spot row-top");
     pSpace.setAttribute("id", "p-spot" + id);
-    pSpace.setAttribute("entrance-top", rowTop + 200 + "px");
-    pSpace.setAttribute("entrance-left", topRowLeft + "px");
+    pSpace.setAttribute("entrance-top", rowTop + 200);
+    pSpace.setAttribute("entrance-left", topRowLeft);
     topRowLeft += 112;
     pLot.appendChild(pSpace);
   }
@@ -87,8 +87,8 @@ function setMiddleRow() {
     pSpace.setAttribute("style", `left:${middleRowLeft}px; top:${rowTop}px;`);
     pSpace.setAttribute("class", "p-spot row-middle");
     pSpace.setAttribute("id", "p-spot" + id);
-    pSpace.setAttribute("entrance-top", rowTop + "px");
-    pSpace.setAttribute("entrance-left", middleRowLeft + "px");
+    pSpace.setAttribute("entrance-top", rowTop);
+    pSpace.setAttribute("entrance-left", middleRowLeft);
     middleRowLeft += 112;
     pLot.appendChild(pSpace);
   }
@@ -104,8 +104,8 @@ function setBottomwRow() {
     pSpace.setAttribute("style", `left:${bottomRowLeft}px; top:${rowTop}px;`);
     pSpace.setAttribute("class", "p-spot row-bottom");
     pSpace.setAttribute("id", "p-spot" + id);
-    pSpace.setAttribute("entrance-top", rowTop + "px");
-    pSpace.setAttribute("entrance-left", bottomRowLeft + "px");
+    pSpace.setAttribute("entrance-top", rowTop);
+    pSpace.setAttribute("entrance-left", bottomRowLeft);
     bottomRowLeft += 112;
     pLot.appendChild(pSpace);
   }

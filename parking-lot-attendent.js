@@ -31,19 +31,29 @@ function getRandomParkSpot() {
     if (randomSpot.carInSpot == "") return randomSpot;
   }
 }
-function assignCarToSpot() {
+function assignCarToSpot(car) {
   let randomSpot = getRandomParkSpot();
   let randomCar = carsArr[Math.floor(Math.random() * (1 + carsArr.length))].id;
   randomSpot.carInSpot = randomCar;
   return randomCar, randomSpot;
 }
-let intervalId = setInterval(function() {
-  // parkCar();
-});
+function getProps(element) {
+  let ce = window.getComputedStyle(element);
+  let props = {
+    left: stripPx(ce.left),
+    top: stripPx(ce.top)
+  };
+  return props;
+}
+function stripPx(prop) {
+  return parseInt(prop.replace("px", ""));
+}
 function parkCar() {
   let carId = assignCarToSpot().carInSpot;
   let spot = assignCarToSpot();
-  console.dir(spot.parkingSpot);
+  let eLeft = spot.parkingSpot.attributes.getNamedItem("entrance-left")
+    .nodeValue;
+  let eTop = spot.parkingSpot.attributes.getNamedItem("entrance-top").nodeValue;
   for (let i = carsWaiting.length - 1; i >= 0; --i) {
     if (carsWaiting[i].licensePlate === carId) {
       let car = carsWaiting[i];
@@ -51,13 +61,10 @@ function parkCar() {
       for (let b = carsArr.length - 1; b >= 0; --b) {
         if (carsArr[b].id == car.licensePlate) {
           let carImage = carsArr[b];
-          move(carImage);
+          move(carImage, eLeft, eTop);
         }
       }
     }
   }
   console.log(carsWaiting);
-}
-function move(car) {
-  console.dir(car);
 }
